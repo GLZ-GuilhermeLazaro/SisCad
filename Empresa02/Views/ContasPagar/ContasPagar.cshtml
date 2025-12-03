@@ -1,0 +1,29 @@
+﻿@model IEnumerable<SistemaCadastro. Models.ContasPagar>
+@{
+	ViewData["Title"] = "Contas a Pagar";
+}
+<h1>Lista de Contas a Pagar</h1>
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<td>Número da Conta</td>
+			<td>Valor da Conta</td>
+			<td>Valor Recebido</td>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var ContasPagar in Model)
+		{
+			<tr>
+				<td>@Html.DisplayFor(modelItem => ContasPagar.ContaID)</td>
+				<td>@Html.DisplayFor(modelItem => ContasPagar.ValorConta)</td>
+				<td>@Html.DisplayFor(modelItem => ContasPagar.ValorPago)</td>
+				<td>
+					<button class="btn btn-primary">Visualizar</button>
+					<button class="btn btn-danger">Pagar</button>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

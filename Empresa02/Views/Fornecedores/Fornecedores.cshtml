@@ -1,0 +1,43 @@
+﻿@model IEnumerable<SistemaCadastro.Models.Fornecedores>
+@{
+    ViewData["Title"] = "Fornecedores";
+}
+
+@Html.ActionLink("Adicionar Novo Fornecedor", "CriarFornecedor", "Fornecedores", null, new { @class = "btn btn-primary" })
+
+<h1>Cadastro de Fornecedores</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Fornecedor ID</td>
+            <td>Nome Fornecedor</td>
+            <td>CNPJ</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var Fornecedores in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => Fornecedores.Id)</td>
+                <td>@Html.DisplayFor(modelItem => Fornecedores.NomeFornecedor)</td>
+                <td>@Html.DisplayFor(modelItem => Fornecedores.CNPJ)</td>
+
+                <td>
+                    @Html.ActionLink("Editar", "EditarFornecedor", new { id = Fornecedores.Id }, new { @class = "btn btn-sm btn-warning" })
+                </td>
+
+                <td>
+                    <form method="post" action="/Fornecedores/ExcluirFornecedor" style="display:inline;">
+                        <input type="hidden" name="id" value="@Fornecedores.Id" />
+                        <button class="btn btn-danger btn-sm" onclick="return confirm('Excluir mesmo?')">
+                            Excluir
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

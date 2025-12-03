@@ -1,0 +1,36 @@
+﻿@model SistemaCadastro.Models.Fornecedores
+@{
+    ViewData["Title"] = "Criar Fornecedor";
+}
+
+<h1>Criar Fornecedor</h1>
+
+@using(Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div>
+    <form>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.NomeFornecedor, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NomeFornecedor, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CNPJ, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CNPJ, new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Salvar" class="btn btn-success" />
+                    @Html.ActionLink("Voltar para a Lista", "Fornecedores", null, new { @class = "btn btn-default" })
+                </div>
+            </div>
+    </form>
+</div>
+}
