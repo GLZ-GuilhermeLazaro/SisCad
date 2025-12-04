@@ -15,13 +15,12 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
 
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-   pattern: "{controller=Fornecedores}/{action=Fornecedores}/{id?}");
+   pattern: "{controller=Principal}/{action=Principal}/{id?}");
 
 app.Run();

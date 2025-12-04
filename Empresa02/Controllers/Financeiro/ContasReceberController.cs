@@ -1,8 +1,8 @@
-﻿using SistemaCadastro.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel;
+using SistemaCadastro.Models.Financeiro;
 
-namespace SistemaCadastro.Controllers
+namespace SistemaCadastro.Controllers.Financeiro
 {
     public class ContasReceberController : Controller
     {
@@ -20,7 +20,7 @@ namespace SistemaCadastro.Controllers
         public IActionResult ContasReceber()
         {
             var contasreceber = ObterContasReceber();
-            return View(contasreceber);
+            return View("~/Views/Financeiro/ContasReceber/ContasReceber.cshtml", contasreceber);
         }
     }
 }

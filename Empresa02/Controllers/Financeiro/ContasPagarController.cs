@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using SistemaCadastro.Models;
+using SistemaCadastro.Models.Financeiro;
 
-namespace SistemaCadastro.Controllers
+namespace SistemaCadastro.Controllers.Financeiro
 {
     public class ContasPagarController : Controller
     {
@@ -21,7 +21,7 @@ namespace SistemaCadastro.Controllers
         public IActionResult ContasPagar()
         {
             var contaspagar = ObterContasPagar();
-            return View(contaspagar);
+            return View("~/Views/Financeiro/ContasPagar/ContasPagar.cshtml",contaspagar);
         }
     }
 }

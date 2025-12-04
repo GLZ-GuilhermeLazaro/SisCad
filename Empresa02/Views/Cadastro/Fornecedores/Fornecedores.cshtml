@@ -1,4 +1,4 @@
-﻿@model IEnumerable<SistemaCadastro.Models.Fornecedores>
+﻿@model IEnumerable<SistemaCadastro.Models.Cadastro.Fornecedores>
 @{
     ViewData["Title"] = "Fornecedores";
 }
@@ -17,20 +17,20 @@
     </thead>
     <tbody>
 
-        @foreach (var Fornecedores in Model)
+        @foreach (var fornecedor in Model)
         {
             <tr>
-                <td>@Html.DisplayFor(modelItem => Fornecedores.Id)</td>
-                <td>@Html.DisplayFor(modelItem => Fornecedores.NomeFornecedor)</td>
-                <td>@Html.DisplayFor(modelItem => Fornecedores.CNPJ)</td>
+                <td>@Html.DisplayFor(modelItem => fornecedor.Id)</td>
+                <td>@Html.DisplayFor(modelItem => fornecedor.NomeFornecedor)</td>
+                <td>@Html.DisplayFor(modelItem => fornecedor.CNPJ)</td>
 
                 <td>
-                    @Html.ActionLink("Editar", "EditarFornecedor", new { id = Fornecedores.Id }, new { @class = "btn btn-sm btn-warning" })
+                    @Html.ActionLink("Editar", "EditarFornecedor", new { id = fornecedor.Id }, new { @class = "btn btn-sm btn-warning" })
                 </td>
 
                 <td>
                     <form method="post" action="/Fornecedores/ExcluirFornecedor" style="display:inline;">
-                        <input type="hidden" name="id" value="@Fornecedores.Id" />
+                        <input type="hidden" name="id" value="@fornecedor.Id" />
                         <button class="btn btn-danger btn-sm" onclick="return confirm('Excluir mesmo?')">
                             Excluir
                         </button>
