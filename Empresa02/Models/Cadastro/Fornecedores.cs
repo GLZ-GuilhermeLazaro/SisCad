@@ -1,4 +1,4 @@
-﻿namespace SistemaCadastro.Models
+﻿namespace SistemaCadastro.Models.Cadastro
 {
     public class Fornecedores
     {

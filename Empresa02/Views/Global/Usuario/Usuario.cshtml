@@ -1,0 +1,43 @@
+﻿@model IEnumerable<SistemaCadastro.Models.Global.Usuario>
+@{
+    ViewData["Title"] = "Usuarios";
+}
+
+@Html.ActionLink("Adicionar Novo Usuario", "CriarUsuario", "Usuario", null, new { @class = "btn btn-primary" })
+
+<h1>Cadastro de Usuarios</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Usuario ID</td>
+            <td>Nome Usuário</td>
+            <td>E-mail</td>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var Usuario in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => Usuario.Id)</td>
+                <td>@Html.DisplayFor(modelItem => Usuario.NomeUsuario)</td>
+                <td>@Html.DisplayFor(modelItem => Usuario.email)</td>
+
+                <td>
+                    @Html.ActionLink("Editar", "EditarUsuario", new { id = Usuario.Id }, new { @class = "btn btn-sm btn-warning" })
+                </td>
+
+                <td>
+                    <form method="post" action="/Usuario/ExcluirUsuario" style="display:inline;">
+                        <input type="hidden" name="id" value="@Usuario.Id" />
+                        <button class="btn btn-danger btn-sm" onclick="return confirm('Excluir mesmo?')">
+                            Excluir
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

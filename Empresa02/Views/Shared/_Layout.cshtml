@@ -12,7 +12,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Sistema Cadastro</a>
+                <a class="navbar-brand" asp-area="Global" asp-controller="Principal" asp-action="Principal">Badrock System</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,13 +20,16 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Fornecedores" asp-action="Fornecedores">Listagem de Fornecedores</a>
+                            <a class="nav-link text-dark" asp-area="Global" asp-controller="Usuario" asp-action="Usuario">Todos os Usuários</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ContasPagar" asp-action="ContasPagar">Contas a Pagar</a>
+                            <a class="nav-link text-dark" asp-area="Cadastro" asp-controller="Fornecedores" asp-action="Fornecedores">Listagem de Fornecedores</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ContasReceber" asp-action="ContasReceber">Contas a Receber</a>
+                            <a class="nav-link text-dark" asp-area="Financeiro" asp-controller="ContasPagar" asp-action="ContasPagar">Contas a Pagar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="Financeiro" asp-controller="ContasReceber" asp-action="ContasReceber">Contas a Receber</a>
                         </li>
                     </ul>
                 </div>

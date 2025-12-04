@@ -1,8 +1,8 @@
-﻿using SistemaCadastro.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using SistemaCadastro.Models.Cadastro;
 
-namespace SistemaCadastro.Controllers
+namespace SistemaCadastro.Controllers.Cadastro
 {
     public class FornecedoresController : Controller
     {
@@ -17,20 +17,20 @@ namespace SistemaCadastro.Controllers
         private static int _nextID = 4;
         public IActionResult Fornecedores()
         {
-            return View(_fornecedores.OrderBy(a => a.Id).ToList());
+            return View("~/Views/Cadastro/Fornecedores/Fornecedores.cshtml",_fornecedores.OrderBy(a => a.Id).ToList());
         }
 
         [HttpGet]
         public IActionResult CriarFornecedor()
         {
-            return View();
+            return View("~/Views/Cadastro/Fornecedores/CriarFornecedor.cshtml");
         }
 
         [HttpPost]
         public IActionResult CriarFornecedor(Fornecedores fornecedor)
         {
             if (!ModelState.IsValid)
-                return View(fornecedor);
+                return View("~/Views/Cadastro/Fornecedores/CriarFornecedor.cshtml",fornecedor);
 
             fornecedor.Id = _nextID++;
             _fornecedores.Add(fornecedor);
@@ -46,7 +46,7 @@ namespace SistemaCadastro.Controllers
             if (fornecedor == null)
                 return NotFound();
 
-            return View(fornecedor);
+            return View("~/Views/Cadastro/Fornecedores/EditarFornecedor.cshtml", fornecedor);
         }
 
         [HttpPost]

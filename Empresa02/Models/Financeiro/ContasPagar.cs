@@ -1,4 +1,4 @@
-﻿namespace SistemaCadastro.Models
+﻿namespace SistemaCadastro.Models.Financeiro
 {
     public class ContasPagar
     {
